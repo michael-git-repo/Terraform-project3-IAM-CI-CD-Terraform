@@ -36,6 +36,7 @@ module "michael_user" {
   group_name = aws_iam_group.it_dept.name
 }
 
+
 # 6. user 4: Sarah (Full Name: Sarah Davis)
 module "sarah_user" {
   source     = "./modules/iam-user"

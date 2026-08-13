@@ -22,3 +22,21 @@ output "kate_user_arn" {
   value       = module.kate_user.user_arn
   description = "ARN for Kate Johnson"
 }
+
+output "michael_user_name" {
+  value       = module.michael_user.username
+  description = "IAM Username for Michael Brown"
+}
+output "michael_user_arn" {
+  value       = module.michael_user.user_arn
+  description = "ARN for Michael Brown"
+}   
+
+output "sarah_user_name" {
+  value       = module.sarah_user.username
+  description = "IAM Username for Sarah Davis"
+}
+output "sarah_user_arn" {
+  value       = module.sarah_user.user_arn
+  description = "ARN for Sarah Davis"
+}
