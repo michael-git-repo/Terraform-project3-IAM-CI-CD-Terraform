@@ -11,7 +11,7 @@ resource "aws_iam_group_policy_attachment" "it_dept_admin" {
 
 # 3. User 1: John (Full Name: John Smith)
 module "john_user" {
-  source     = "./modules/iam_user"
+  source     = "./modules/iam-user"
   username   = "john.smith"              # IAM Username
   full_name  = "John Smith"              # Tagging Name
   department = var.department
@@ -20,7 +20,7 @@ module "john_user" {
 
 # 4. User 2: Kate (Full Name: Kate Johnson)
 module "kate_user" {
-  source     = "./modules/iam_user"
+  source     = "./modules/iam-user"
   username   = "kate.johnson"            # IAM Username
   full_name  = "Kate Johnson"            # Tagging Name
   department = var.department
