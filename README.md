@@ -1,18 +1,18 @@
-# Terraform-project3-IAM-CI-CD-Terraform
 # AWS IAM Management with Terraform & GitHub Actions CI/CD
 
 This repository automates the provisioning and lifecycle management of AWS Identity and Access Management (IAM) users, groups, and policy attachments using **Terraform** and **GitHub Actions**.
 
 ---
 
-📌 Features
+## 📌 Features
 
-* **Reusable IAM User Module**: Standardises user creation with tags, group memberships, and consistent configurations.
+* **Reusable IAM User Module**: Standardizes user creation with tags, group memberships, and consistent configurations.
 * **Automated CI/CD Pipeline**: Validates, formats, plans, and applies infrastructure changes automatically on pull requests or pushes to `main`.
 * **Least Privilege Access**: Provisions structured IAM groups (e.g., `IT-department`) with attached managed policies.
 
 ---
 
+```text
 📁 Repository Structure
 ├── .github/
 │   └── workflows/
@@ -27,5 +27,3 @@ This repository automates the provisioning and lifecycle management of AWS Ident
 ├── provider.tf                 # AWS Provider configuration
 ├── variables.tf                # Input variables
 └── README.md
-
-
