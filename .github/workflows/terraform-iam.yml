@@ -39,9 +39,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # 4. Check syntax formatting
+      # 4. Check syntax formatting across all modules
       - name: Terraform Format Check
-        run: terraform fmt -check
+        run: terraform fmt -check -recursive
 
       # 5. Initialize Terraform modules
       - name: Terraform Init
