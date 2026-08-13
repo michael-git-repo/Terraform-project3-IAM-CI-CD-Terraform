@@ -26,3 +26,21 @@ module "kate_user" {
   department = var.department
   group_name = aws_iam_group.it_dept.name
 }
+
+# 5. user 3: Michael (Full Name: Michael Brown)
+module "michael_user" {
+  source     = "./modules/iam-user"
+  username   = "michael.brown"           # IAM Username
+  full_name  = "Michael Brown"           # Tagging Name
+  department = var.department
+  group_name = aws_iam_group.it_dept.name
+}
+
+# 6. user 4: Sarah (Full Name: Sarah Davis)
+module "sarah_user" {
+  source     = "./modules/iam-user"
+  username   = "sarah.davis"             # IAM Username
+  full_name  = "Sarah Davis"             # Tagging Name
+  department = var.department
+  group_name = aws_iam_group.it_dept.name
+}
