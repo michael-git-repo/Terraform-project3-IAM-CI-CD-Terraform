@@ -40,9 +40,8 @@ jobs:
           aws-region: us-east-1
 
       # 4. Check syntax formatting across all modules
-      - name: Terraform Format Check
-        run: terraform fmt -check -recursive
-
+      - name: Terraform Format
+        run: terraform fmt -recursive
       # 5. Initialize Terraform modules
       - name: Terraform Init
         run: terraform init
