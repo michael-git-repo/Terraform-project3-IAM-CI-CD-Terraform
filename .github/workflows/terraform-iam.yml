@@ -1,0 +1,61 @@
+name: "Terraform IAM CI/CD Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: "Terraform Init, Plan & Apply"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Terraform CLI
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "latest"
+
+      # 3. Configure AWS Credentials using GitHub Secrets
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      # 4. Check syntax formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      # 5. Initialize Terraform modules
+      - name: Terraform Init
+        run: terraform init
+
+      # 6. Validate configuration code
+      - name: Terraform Validate
+        run: terraform validate
+
+      # 7. Generate execution plan
+      - name: Terraform Plan
+        run: terraform plan -no-color
+
+      # 8. Apply changes (ONLY runs on push to main)
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve
