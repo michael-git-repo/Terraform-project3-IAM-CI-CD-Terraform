@@ -1,6 +1,6 @@
 # 1. Create the IAM Group for the IT Department
 resource "aws_iam_group" "it_dept" {
-  name = "IT department"
+  name = "IT-department"
 }
 
 # 2. Attach AdministratorAccess policy to the IT Department Group
