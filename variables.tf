@@ -6,6 +6,6 @@ variable "aws_region" {
 
 variable "department" {
   type        = string
-  default     = "IT department"
+  default     = "It-department"
   description = "Department name applied as tags and group names"
 }

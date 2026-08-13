@@ -10,7 +10,7 @@ variable "full_name" {
 
 variable "department" {
   type        = string
-  default     = "IT-Department"
+  default     = "It-department"
   description = "Department tag"
 }
 
